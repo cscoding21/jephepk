@@ -1,0 +1,29 @@
+{
+  "name": "bun-react-template",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.tsx",
+  "module": "src/index.tsx",
+  "scripts": {
+    "dev": "bun --hot src/index.tsx",
+    "start": "NODE_ENV=production bun src/index.tsx",
+    "build": "bun run build.ts",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
+  },
+  "dependencies": {
+    "bun-plugin-tailwind": "^0.0.15",
+    "flowbite-react": "^0.12.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.19",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.14"
+  }
+}

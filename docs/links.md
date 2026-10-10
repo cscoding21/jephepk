@@ -1,12 +1,17 @@
 # Videos
 
-- https://www.youtube.com/watch?v=6-wtgG_MnDA (final walk vid)
-- https://www.youtube.com/watch?v=uVm2XbKIANA (dsh vid)
 - https://www.youtube.com/watch?v=qOVu9ww6uxo (empathy solo)
 - https://www.youtube.com/watch?v=ST1t4R_juE4 (muted solo)
 - https://www.youtube.com/watch?v=cmyD0T2bxqA (lucantirthday solo)
 
 # TI Links
+
+## videos
+
+- https://www.youtube.com/watch?v=6-wtgG_MnDA (final walk vid)
+- https://www.youtube.com/watch?v=uVm2XbKIANA (dsh vid)
+
+## songs
 
 ## references:
 

@@ -1,11 +1,52 @@
 import { DarkThemeToggle } from "flowbite-react";
+import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "flowbite-react";
+import { useState } from "react";
 
 import patternDark from "./assets/pattern-dark.svg";
 import patternLight from "./assets/pattern-light.svg";
+
 import mainPic from './assets/pics/jeff-guitar-pfp.png'
 
-export function App() {
+import necrotechSong from './assets/mp3s/ti-necrotech.mp3'
+import toxicSong from './assets/mp3s/ti-toxic.mp3'
+import selfishSong from './assets/mp3s/ti-selfish.mp3'
+import zoofSong from './assets/mp3s/ti-zoof.mp3'
 
+const tiLinks: [] = [
+  "https://www.metal-archives.com/bands/Temporary_Insanity/90087",
+  "https://www.divebombrecords.com/bands/temporary-insanity",
+  "https://tribunalrecords.bandcamp.com/album/final-walk",
+  "https://www.discogs.com/artist/15790596-Temporary-Insanity-3",
+]
+const tiPress: [] = [
+  "https://idioteq.com/recalling-temporary-insanity-late-80s-boston-cult-metal-superstars/",
+  "https://bostonhassle.com/remembering-boston-thrash-band-temporary-insanity/",
+  "https://www.decibelmagazine.com/2019/06/19/80s-underground-thrash-assassins-temporary-insanity-climb-out-of-the-grave-for-a-final-walk/",
+  "https://metal-temple.com/review/temporary-insanity-final-walk/",
+]
+const tiVids: [] = [
+  { link: "https://www.youtube.com/watch?v=6-wtgG_MnDA", name: "Final Walk" },
+  { link: "https://www.youtube.com/watch?v=uVm2XbKIANA", name: "D.S.H." },
+]
+
+const tiSongs: [] = [
+  { link: "https://www.youtube.com/watch?v=6-wtgG_MnDA", name: "Toxic Spawn" },
+  { link: "https://www.youtube.com/watch?v=6-wtgG_MnDA", name: "Selfish but Justified" },
+  { link: "https://www.youtube.com/watch?v=6-wtgG_MnDA", name: "Zoof" },
+  { link: "https://www.youtube.com/watch?v=6-wtgG_MnDA", name: "Necrotech" },
+]
+
+const jephVids: [] = [
+  { url: "https://www.youtube.com/embed/ST1t4R_juE4", name: "Muted solo" },
+  { url: "https://www.youtube.com/embed/cmyD0T2bxqA", name: "Lucantirthday solo" },
+  { url: "https://www.youtube.com/embed/qOVu9ww6uxo", name: "Empathy solo" },
+]
+
+
+export function App() {
+  const [jephModal0, setJephModal0] = useState(false);
+  const [jephModal1, setJephModal1] = useState(false);
+  const [jephModal2, setJephModal2] = useState(false);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-white px-4 py-24 dark:bg-gray-900">
@@ -33,17 +74,50 @@ export function App() {
             <img className="w-full hidden dark:block" src={mainPic} alt="Jeff Kody" />
             <div className="mt-4 md:mt-0">
               <h2 className="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Jeff Kody</h2>
-              <h3 className="mb-4 text-xl tracking-tight font-extrabold text-gray-700 dark:text-gray-500">Heavy Metal Guitar Player</h3>
-              <p className="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">Flowbite helps you connect with friends and communities of people who share your interests. Connecting with your friends and family as well as discovering new ones is easy with features like Groups.</p>
-              <a href="#" className="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900">
-                  Get started
-                  <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-              </a>
+              <h3 className="mb-4 text-xl tracking-tight font-extrabold text-gray-700 dark:text-gray-500">Heavy Metal, Thrash, Punk Guitar Player</h3>
+            <p className="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">
+              Flowbite helps you connect with friends and communities of people who share your interests. Connecting with your friends and family as well as discovering new ones is easy with features like Groups.
+            </p>
             </div>
           </div>
       </section>
 
 
+      <section className="bg-white dark:bg-gray-900">
+       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+           <div className="text-center text-gray-900">
+               <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 lg:text-5xl dark:text-white">Playing Examples</h2>
+           </div>
+           <div className="grid gap-6 mt-12 lg:mt-14 lg:gap-12 md:grid-cols-3">
+
+             {jephVids.map((vid, index) => (
+               <div className="flex mb-2 md:flex-col md:mb-0">
+                 <Button onClick={() => eval("setJephModal" + index)(true)}>
+                   {vid.name}
+                 </Button>
+                 <Modal show={eval("jephModal" + index)} onClose={() => eval("setJephModal" + index)(false)} dismissible size="7xl">
+                   <ModalBody>
+                     <iframe width="1024" height="576"
+                       className="w-full"
+                       src={ vid.url }
+                       title={ vid.name }
+                       frameBorder={0}
+                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                       referrerPolicy="strict-origin-when-cross-origin"
+                       allowFullScreen>
+                     </iframe>
+                   </ModalBody>
+                 </Modal>
+
+                <div>
+                   <h3 className="text-xl font-bold md:mt-4 mb-2.5 text-gray-900 dark:text-white">{ vid.name }</h3>
+                    <p className="text-gray-500 dark:text-gray-400">Work seamlessly across your organization on a platform designed for collaboration.</p>
+                </div>
+              </div>
+              ))}
+           </div>
+       </div>
+     </section>
     </main>
   );
 }

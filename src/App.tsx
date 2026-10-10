@@ -30,10 +30,10 @@ const tiVids: [] = [
 ]
 
 const tiSongs: [] = [
-  { link: "https://www.youtube.com/watch?v=6-wtgG_MnDA", name: "Toxic Spawn" },
-  { link: "https://www.youtube.com/watch?v=6-wtgG_MnDA", name: "Selfish but Justified" },
-  { link: "https://www.youtube.com/watch?v=6-wtgG_MnDA", name: "Zoof" },
-  { link: "https://www.youtube.com/watch?v=6-wtgG_MnDA", name: "Necrotech" },
+  { link: toxicSong, name: "Toxic Spawn" },
+  { link: selfishSong, name: "Selfish but Justified" },
+  { link: zoofSong, name: "Zoof" },
+  { link: necrotechSong, name: "Necrotech" },
 ]
 
 const jephVids: [] = [
@@ -42,82 +42,168 @@ const jephVids: [] = [
   { url: "https://www.youtube.com/embed/qOVu9ww6uxo", name: "Empathy solo" },
 ]
 
+const jephSongs: [] = [
+  { url: "https://www.youtube.com/embed/ST1t4R_juE4", name: "Empathy" },
+  { url: "https://www.youtube.com/embed/ST1t4R_juE4", name: "Muted" },
+  { url: "https://www.youtube.com/embed/ST1t4R_juE4", name: "Shadows" },
+  { url: "https://www.youtube.com/embed/ST1t4R_juE4", name: "Negative Charisma" },
+]
+
 
 export function App() {
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-center bg-white px-4 py-24 dark:bg-gray-900">
+
+      {renderTopElements()}
+
+      {renderHeroSection()}
+
+      {renderPlayingExamples()}
+
+      {renderSongExamples()}
+
+      {renderPriorWork()}
+
+
+    </main>
+  );
+}
+
+
+const renderTopElements = () => {
+  return (
+    <div>
+  <div className="absolute inset-0 size-full">
+    <div className="relative h-full w-full select-none">
+      {/*<img
+        className="absolute right-0 min-w-dvh dark:hidden"
+        alt="Pattern Light"
+        src={patternLight}
+      />
+      <img
+        className="absolute right-0 hidden min-w-dvh dark:block"
+        alt="Pattern Dark"
+        src={patternDark}
+      />*/}
+    </div>
+  </div>
+  <div className="absolute top-4 right-4">
+    <DarkThemeToggle />
+  </div>
+    </div>
+  )
+}
+
+
+const renderHeroSection = () => {
+  return (
+    <section className="bg-white dark:bg-gray-900">
+        <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+          <img className="w-full dark:hidden rounded-lg" src={mainPic} alt="Jeff Kody" />
+          <img className="w-full hidden dark:block rounded-lg" src={mainPic} alt="Jeff Kody" />
+          <div className="mt-4 md:mt-0">
+            <h2 className="text-4xl tracking-tight font-extrabold text-gray-800 dark:text-white mb-1">Jeff Kody</h2>
+            <h3 className="mb-3 text-xl tracking-tight font-extrabold text-gray-500 dark:text-gray-400">Heavy Metal, Thrash, Punk Guitar Player</h3>
+          <p className="mb-6 font-light text-gray-500 md:text-md dark:text-gray-400">
+            Flowbite helps you connect with friends and communities of people who share your interests. Connecting with your friends and family as well as discovering new ones is easy with features like Groups.
+          </p>
+          </div>
+        </div>
+    </section>
+  )
+}
+
+
+const renderPlayingExamples = () => {
   const [jephModal0, setJephModal0] = useState(false);
   const [jephModal1, setJephModal1] = useState(false);
   const [jephModal2, setJephModal2] = useState(false);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-white px-4 py-24 dark:bg-gray-900">
-      <div className="absolute inset-0 size-full">
-        <div className="relative h-full w-full select-none">
-          {/*<img
-            className="absolute right-0 min-w-dvh dark:hidden"
-            alt="Pattern Light"
-            src={patternLight}
-          />
-          <img
-            className="absolute right-0 hidden min-w-dvh dark:block"
-            alt="Pattern Dark"
-            src={patternDark}
-          />*/}
-        </div>
-      </div>
-      <div className="absolute top-4 right-4">
-        <DarkThemeToggle />
-      </div>
+    <section className="bg-white dark:bg-gray-900">
+     <div className="py-4 px-4 mx-auto max-w-screen-xl lg:py-6 lg:px-6">
+         <div className="text-left text-gray-900 border-b border-gray-600">
+             <h2 className="mb-4 text-xl tracking-tight font-extrabold text-gray-900 lg:text-2xl dark:text-white">Playing Examples</h2>
+         </div>
+         <div className="grid gap-6 mt-4 lg:mt-6 lg:gap-12 md:grid-cols-3">
 
-      <section className="bg-white dark:bg-gray-900">
-          <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
-          <img className="w-full dark:hidden" src={mainPic} alt="Jeff Kody" />
-            <img className="w-full hidden dark:block" src={mainPic} alt="Jeff Kody" />
-            <div className="mt-4 md:mt-0">
-              <h2 className="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Jeff Kody</h2>
-              <h3 className="mb-4 text-xl tracking-tight font-extrabold text-gray-700 dark:text-gray-500">Heavy Metal, Thrash, Punk Guitar Player</h3>
-            <p className="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">
-              Flowbite helps you connect with friends and communities of people who share your interests. Connecting with your friends and family as well as discovering new ones is easy with features like Groups.
-            </p>
-            </div>
-          </div>
-      </section>
+           {jephVids.map((vid, index) => (
+             <div className="flex mb-2 md:flex-col md:mb-0">
+               <Button onClick={() => eval("setJephModal" + index)(true)}>
+                 {vid.name}
+               </Button>
+               <Modal show={eval("jephModal" + index)} onClose={() => eval("setJephModal" + index)(false)} dismissible size="7xl">
+                 <ModalBody>
+                   <iframe width="1024" height="576"
+                     className="w-full"
+                     src={ vid.url }
+                     title={ vid.name }
+                     frameBorder={0}
+                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                     referrerPolicy="strict-origin-when-cross-origin"
+                     allowFullScreen>
+                   </iframe>
+                 </ModalBody>
+               </Modal>
 
-
-      <section className="bg-white dark:bg-gray-900">
-       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-           <div className="text-center text-gray-900">
-               <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 lg:text-5xl dark:text-white">Playing Examples</h2>
-           </div>
-           <div className="grid gap-6 mt-12 lg:mt-14 lg:gap-12 md:grid-cols-3">
-
-             {jephVids.map((vid, index) => (
-               <div className="flex mb-2 md:flex-col md:mb-0">
-                 <Button onClick={() => eval("setJephModal" + index)(true)}>
-                   {vid.name}
-                 </Button>
-                 <Modal show={eval("jephModal" + index)} onClose={() => eval("setJephModal" + index)(false)} dismissible size="7xl">
-                   <ModalBody>
-                     <iframe width="1024" height="576"
-                       className="w-full"
-                       src={ vid.url }
-                       title={ vid.name }
-                       frameBorder={0}
-                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                       referrerPolicy="strict-origin-when-cross-origin"
-                       allowFullScreen>
-                     </iframe>
-                   </ModalBody>
-                 </Modal>
-
-                <div>
-                   <h3 className="text-xl font-bold md:mt-4 mb-2.5 text-gray-900 dark:text-white">{ vid.name }</h3>
-                    <p className="text-gray-500 dark:text-gray-400">Work seamlessly across your organization on a platform designed for collaboration.</p>
-                </div>
+              <div>
+                 <h3 className="text-xl font-bold md:mt-4 mb-2.5 text-gray-900 dark:text-white">{ vid.name }</h3>
+                  <p className="text-gray-500 dark:text-gray-400">Work seamlessly across your organization on a platform designed for collaboration.</p>
               </div>
-              ))}
-           </div>
-       </div>
-     </section>
-    </main>
-  );
+            </div>
+            ))}
+         </div>
+     </div>
+   </section>
+  )
+}
+
+
+const renderSongExamples = () => {
+  return (
+    <section className="bg-white dark:bg-gray-900 mt-8">
+     <div className="py-4 px-4 mx-auto max-w-screen-xl lg:py-6 lg:px-6">
+         <div className="text-left text-gray-900 border-b border-gray-600">
+             <h2 className="mb-4 text-xl tracking-tight font-extrabold text-gray-900 lg:text-2xl dark:text-white">Songwriting Examples</h2>
+         </div>
+         <div className="grid gap-6 mt-4 lg:mt-6 lg:gap-12 md:grid-cols-3">
+
+           {jephVids.map((vid, index) => (
+             <div className="flex mb-2 md:flex-col md:mb-0">
+
+              <div>
+                 <h3 className="text-xl font-bold md:mt-4 mb-2.5 text-gray-900 dark:text-white">{ vid.name }</h3>
+                  <p className="text-gray-500 dark:text-gray-400">Work seamlessly across your organization on a platform designed for collaboration.</p>
+              </div>
+            </div>
+            ))}
+         </div>
+     </div>
+   </section>
+  )
+}
+
+
+const renderPriorWork = () => {
+  return (
+    <section className="bg-white dark:bg-gray-900 mt-8">
+     <div className="py-4 px-4 mx-auto max-w-screen-xl lg:py-6 lg:px-6">
+         <div className="text-left text-gray-900 border-b border-gray-600">
+             <h2 className="mb-4 text-xl tracking-tight font-extrabold text-gray-900 lg:text-2xl dark:text-white">Prior Work</h2>
+         </div>
+         <div className="grid gap-6 mt-4 lg:mt-6 lg:gap-12 md:grid-cols-3">
+
+           {jephVids.map((vid, index) => (
+             <div className="flex mb-2 md:flex-col md:mb-0">
+
+              <div>
+                 <h3 className="text-xl font-bold md:mt-4 mb-2.5 text-gray-900 dark:text-white">{ vid.name }</h3>
+                  <p className="text-gray-500 dark:text-gray-400">Work seamlessly across your organization on a platform designed for collaboration.</p>
+              </div>
+            </div>
+            ))}
+         </div>
+     </div>
+   </section>
+  )
 }

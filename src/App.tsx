@@ -1,5 +1,5 @@
 import { DarkThemeToggle } from "flowbite-react";
-import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "flowbite-react";
+import { Button, Modal, ModalBody } from "flowbite-react";
 import { useState } from "react";
 
 import patternDark from "./assets/pattern-dark.svg";
@@ -43,9 +43,9 @@ const tiSongs: [] = [
 ]
 
 const jephVids: [] = [
-  { url: "https://www.youtube.com/embed/ST1t4R_juE4", name: "Muted solo" },
-  { url: "https://www.youtube.com/embed/cmyD0T2bxqA", name: "Lucantirthday solo" },
-  { url: "https://www.youtube.com/embed/qOVu9ww6uxo", name: "Empathy solo" },
+  { url: "https://www.youtube.com/embed/ST1t4R_juE4", name: "Muted solo", thumb: "" },
+  { url: "https://www.youtube.com/embed/cmyD0T2bxqA", name: "Lucantirthday solo", thumb: "" },
+  { url: "https://www.youtube.com/embed/qOVu9ww6uxo", name: "Empathy solo", thumb: "" },
 ]
 
 const jephSongs: [] = [
@@ -136,9 +136,9 @@ const renderPlayingExamples = () => {
 
            {jephVids.map((vid, index) => (
              <div className="flex mb-2 md:flex-col md:mb-0">
-               <Button onClick={() => eval("setJephModal" + index)(true)}>
-                 {vid.name}
-               </Button>
+               <a href="#" onClick={() => eval("setJephModal" + index)(true)}>
+                 <img src={vid.thumb} alt={ vid.name } />
+               </a>
                <Modal show={eval("jephModal" + index)} onClose={() => eval("setJephModal" + index)(false)} dismissible size="7xl">
                  <ModalBody>
                    <iframe width="1024" height="576"

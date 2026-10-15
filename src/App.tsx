@@ -19,6 +19,13 @@ import jeffGlen from "./assets/pics/Jeff-Glen.jpg"
 import tiSansMike from "./assets/pics/TI_Sans_Mike.jpg"
 import jeffSteve from "./assets/pics/TI_Jeff-Steve.jpg"
 
+import dshFrame from "./assets/pics/dsh_frame.png"
+import fwFrame from "./assets/pics/fw_frame.png"
+
+import gwarFlyer from "./assets/pics/gwar-flyer.jpg"
+import disruptFlyer from "./assets/pics/disrupt-flyer.jpg"
+import wargasmFlyer from "./assets/pics/wargasm-flyer.jpg"
+
 import mainPic from './assets/pics/jeff-guitar-pfp.png'
 
 import thumbMutedPic from './assets/pics/thumb-muted.png'
@@ -37,21 +44,20 @@ import deathbedSong from './assets/mp3s/zde-deathbed.mp3'
 import lucantirthdaySong from './assets/mp3s/zde-lucantirthday.mp3'
 
 const tiLinks: [] = [
-  { url: "https://www.metal-archives.com/bands/Temporary_Insanity/90087", name: "Metal Archives", desc: "" },
   { url: "https://www.divebombrecords.com/bands/temporary-insanity", name: "Divebomb Records", desc: "" },
   { url: "https://tribunalrecords.bandcamp.com/album/final-walk", name: "Tribunal Records", desc: "" },
-  { url: "https://www.discogs.com/artist/15790596-Temporary-Insanity-3", name: "Discogs", desc: "" },
-  { url: "https://www.facebook.com/TemporaryInsanity138", name: "Facebook", desc: ""}
+  { url: "https://www.metal-archives.com/bands/Temporary_Insanity/90087", name: "Metal Archives", desc: "" },
+  { url: "https://www.facebook.com/TemporaryInsanity138", name: "Temporary Insanity Facebook", desc: ""}
 ]
 const tiPress: [] = [
-  { url: "https://idioteq.com/recalling-temporary-insanity-late-80s-boston-cult-metal-superstars/", name: "IdiotEQ", desc: "" },
+  { url: "https://idioteq.com/recalling-temporary-insanity-late-80s-boston-cult-metal-superstars/", name: "IDIOTEQ", desc: "" },
   { url: "https://bostonhassle.com/remembering-boston-thrash-band-temporary-insanity/", name: "Boston Hassle", desc: "" },
   { url: "https://www.decibelmagazine.com/2019/06/19/80s-underground-thrash-assassins-temporary-insanity-climb-out-of-the-grave-for-a-final-walk/", name: "Decibal Magazine", desc: "" },
   { url: "https://metal-temple.com/review/temporary-insanity-final-walk/", name: "Metal Temple", desc: "" },
 ]
 const tiVids: [] = [
-  { url: "https://www.youtube.com/embed/6-wtgG_MnDA", name: "Final Walk", desc: "Track 2 from the Temporary Insanity video demo...Final Walk.  Also the title track from our recently released CD containing all of our studio work.  Shot at Bunratty's in Boston circa 1990." },
-  { url: "https://www.youtube.com/embed/uVm2XbKIANA", name: "D.S.H.", desc: "Track 1 from the Temporary Insanity Video demo...D.S.H. (Death Scum & Hatred).  Shot at the Paradise in Boston, circa 1990." },
+  { url: "https://www.youtube.com/embed/6-wtgG_MnDA", name: "Final Walk", desc: "Track 2 from the Temporary Insanity video demo...Final Walk.  Shot at Bunratty's in Boston circa 1990.", thumb: fwFrame },
+  { url: "https://www.youtube.com/embed/uVm2XbKIANA", name: "D.S.H.", desc: "Track 1 from the Temporary Insanity Video demo...D.S.H. (Death Scum & Hatred).  Shot at the Paradise in Boston, circa 1990.", thumb: dshFrame },
 ]
 
 const tiSongs: [] = [
@@ -85,7 +91,7 @@ const tiPlayList = [
   },
   {
     name: "Necrotech",
-    writer: "Jeff Kody",
+    writer: "Temporary Insanity",
     img: finalWalkCover,
     src: necrotechSong,
     id: 4,
@@ -93,7 +99,7 @@ const tiPlayList = [
 ];
 
 const jephVids: [] = [
-  { url: "https://www.youtube.com/embed/ST1t4R_juE4", name: "Muted solo", thumb: thumbMutedPic, desc: "Another guitar solo for a song called 'Muted'. I wanted it to sound almost pleading to go with the theme of the lyrics." },
+  { url: "https://www.youtube.com/embed/ST1t4R_juE4", name: "Muted solo", thumb: thumbMutedPic, desc: "Another guitar solo for a song called 'Muted'. Going for a pleading sound compliment the song." },
   { url: "https://www.youtube.com/embed/cmyD0T2bxqA", name: "Lucantirthday solo", thumb: thumbLucantirthdayPic, desc: "I wrote roast song for my (very) old friend for his birthday.  This is the guitar solo that came forth." },
   { url: "https://www.youtube.com/embed/qOVu9ww6uxo", name: "Empathy solo", thumb: thumbUntitledPic, desc: "Writing guitar solos for the first set of tracks.  No working title for this one yet." },
 ]
@@ -188,6 +194,7 @@ const renderHeroSection = () => {
           </p>
           <a href="https://www.bandmix.com/jeph21/" target="_blank"><img src={bandmixLogo} alt="Bandmix profile" width={100} /></a>
           <a href="https://www.instagram.com/doomface21/" target="_blank" className="text-gray-200">Instagram</a>
+          <a href="mailto:epk@jeph.me" target="_blank" className="text-gray-200">epk@jeph.me</a>
           </div>
         </div>
     </section>
@@ -231,7 +238,7 @@ const renderSongExamples = () => {
             <p>All songs were written, performed, and recorded entirely by me using
             Logic Pro.  Drums were programmed using the step sequencer while all bass
               and guitar are me.</p>
-            <p className="text-amber-400 font-bold">No AI was used in the creation of this material.
+            <p className="text-amber-400 font-bold mt-3">No AI was used in the creation of this material.
               I fully reject AI / SUNO as a songwriting tool.
             </p>
 
@@ -264,29 +271,61 @@ const renderPriorWork = () => {
         <div className="flex">
         <div className="w-1/3">
           <div className="gap-4 mt-4 sm:grid sm:grid-cols-2 sm:mt-8">
-           <img className="col-span-2 rounded-lg object-cover" src={ finalWalkCover } alt="content gallery 5" />
-           <img className="hidden col-span-1 sm:block rounded-lg object-cover h-full" src={ tiGroup } alt="Final Walk album cover" />
-           <img className="hidden col-span-1 sm:block rounded-lg object-cover h-full" src={ tiSansMike } alt="content gallery 3" />
-           <img className="hidden col-span-1 sm:block rounded-lg object-cover h-full" src={ jeffBiohazard } alt="Final Walk album cover" />
-           <img className="hidden col-span-1 sm:block rounded-lg object-cover h-full" src={ jeffSteve } alt="content gallery 3" />
+            <img className="col-span-2 rounded-lg object-cover" src={ finalWalkCover } alt="Final Walk album cover" />
+            <img className="hidden col-span-1 sm:block rounded-lg object-cover h-full" src={ tiGroup } alt="Press kit photo" />
+              <img className="hidden col-span-1 sm:block rounded-lg object-cover h-full" src={tiSansMike} alt="Group shot with Mike away" />
+              {/*<img className="col-span-2 rounded-lg object-cover" src={ wargasmFlyer } alt="Wargasm/Biohazard flyer" />*/}
+            <img className="hidden col-span-1 sm:block rounded-lg object-cover h-full" src={jeffBiohazard} alt="Hanging with Biohazard and
+          Wrecking Crew" />
+            <img className="hidden col-span-1 sm:block rounded-lg object-cover h-full" src={jeffSteve} alt="Onstage at Narcisis" />
+            <img className="hidden col-span-1 sm:block rounded-lg object-cover h-full" src={ gwarFlyer } alt="GWAR flyer" />
+            <img className="hidden col-span-1 sm:block rounded-lg object-cover h-full" src={disruptFlyer} alt="Disrupt flyer" />
+
+
           </div>
         </div>
           <div className="flex-1 p-8">
             <div>
+              <h3 className="mb-2 text-2xl tracking-tight font-extrabold text-gray-500 dark:text-gray-400">Videos</h3>
               <div className="grid gap-6 mt-4 lg:mt-6 lg:gap-12 md:grid-cols-2">
-
                {tiVids.map((vid, index) => (
                  <YouTubeModal vid={vid} index={index}></YouTubeModal>
                ))}
               </div>
             </div>
 
-            <div className="mt-8">
+            <div className="mt-14">
+              <h3 className="mb-2 text-2xl tracking-tight font-extrabold text-gray-500 dark:text-gray-400">Songs</h3>
             <AudioPlayer
               playList={tiPlayList}
               activeUI={activeUI}
               audioInitialState={{ curPlayId: 1, playListExpanded: true }}>
               </AudioPlayer>
+            </div>
+
+            <div className="mt-14">
+              <h3 className="mb-2 text-2xl tracking-tight font-extrabold text-gray-500 dark:text-gray-400">Links &amp; Press</h3>
+
+              <div className="grid grid-cols-2 gap-4">
+                {tiLinks.map((link, index) => (
+                      <div className="flex items-center">
+                    <svg className="w-5 h-5 text-gray-800 dark:text-white mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
+                    </svg>
+
+                    <a href={link.url} className="inline-flex font-medium items-center text-blue-200 hover:underline" target="_blank">{ link.name }</a>
+                  </div>
+                ))}
+                {tiPress.map((link, index) => (
+                      <div className="flex items-center">
+                    <svg className="w-5 h-5 text-gray-800 dark:text-white mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
+                    </svg>
+
+                    <a href={link.url} className="inline-flex font-medium items-center text-blue-200 hover:underline" target="_blank">{ link.name }</a>
+                  </div>
+                ))}
+              </div>
             </div>
         </div>
 
@@ -302,7 +341,8 @@ const YouTubeModal = ({ vid, index }) => {
   const [jephModal, setJephModal] = useState(false);
 
   return (
-    <div className="flex mb-2 md:flex-col md:mb-0" key={ "div_jeph_" + index}>
+    <div className="flex mb-2 md:flex-col md:mb-0" key={"div_jeph_" + index}>
+      <h3 className="text-xl font-semibold mb-2.5 text-gray-900 dark:text-white">{ vid.name }</h3>
         <img
           className="cursor-pointer rounded-lg h-full w-full"
           width={200}
@@ -324,8 +364,7 @@ const YouTubeModal = ({ vid, index }) => {
          </ModalBody>
        </Modal>
 
-      <div>
-         <h3 className="text-xl font-bold md:mt-4 mb-2.5 text-gray-900 dark:text-white">{ vid.name }</h3>
+      <div className="mt-4">
          <p className="text-gray-500 dark:text-gray-400">{ vid.desc }</p>
       </div>
     </div>

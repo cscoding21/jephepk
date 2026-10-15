@@ -10,6 +10,7 @@ import patternDark from "./assets/pattern-dark.svg";
 import patternLight from "./assets/pattern-light.svg";
 import bandmixLogo from "./assets/bandmixlogo.svg"
 import zdeLogo from "./assets/pics/zde-logo.png"
+import logicProBack from "./assets/pics/logic-pro-wp.png"
 
 import finalWalkCover from "./assets/pics/final-walk-cover.webp"
 import jeffBiohazard from "./assets/pics/JeffBiohazard.jpg"
@@ -226,8 +227,13 @@ const renderSongExamples = () => {
 
         <div className="flex">
           <div className="w-1/3 py-8 font-light text-gray-500 md:text-md dark:text-gray-400">
-            All songs were written, performed, and recorded entirely by me using
-            <a href="https://www.apple.com/logic-pro/">Logic Pro</a>
+            <a href="https://www.apple.com/logic-pro/"><img src={logicProBack} alt="Logic Pro" className="mb-4" /></a>
+            <p>All songs were written, performed, and recorded entirely by me using
+            Logic Pro.  Drums were programmed using the step sequencer while all bass
+              and guitar are me.</p>
+            <p className="text-amber-400 font-bold">No AI was used in the creation of this material.
+              I fully reject AI / SUNO as a songwriting tool.
+            </p>
 
           </div>
         <div className="flex-1 p-8">

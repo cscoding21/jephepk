@@ -49,8 +49,8 @@ const tiPress: [] = [
   { url: "https://metal-temple.com/review/temporary-insanity-final-walk/", name: "Metal Temple", desc: "" },
 ]
 const tiVids: [] = [
-  { url: "https://www.youtube.com/watch?v=6-wtgG_MnDA", name: "Final Walk", desc: "" },
-  { url: "https://www.youtube.com/watch?v=uVm2XbKIANA", name: "D.S.H.", desc: "" },
+  { url: "https://www.youtube.com/embed/6-wtgG_MnDA", name: "Final Walk", desc: "Track 2 from the Temporary Insanity video demo...Final Walk.  Also the title track from our recently released CD containing all of our studio work.  Shot at Bunratty's in Boston circa 1990." },
+  { url: "https://www.youtube.com/embed/uVm2XbKIANA", name: "D.S.H.", desc: "Track 1 from the Temporary Insanity Video demo...D.S.H. (Death Scum & Hatred).  Shot at the Paradise in Boston, circa 1990." },
 ]
 
 const tiSongs: [] = [
@@ -185,7 +185,8 @@ const renderHeroSection = () => {
           <p className="mb-6 font-light text-gray-500 md:text-md dark:text-gray-400">
             Flowbite helps you connect with friends and communities of people who share your interests. Connecting with your friends and family as well as discovering new ones is easy with features like Groups.
           </p>
-          <a href="https://www.bandmix.com/jeph21/" target="_blank"><img src={ bandmixLogo } alt="Bandmix profile" width={100} /></a>
+          <a href="https://www.bandmix.com/jeph21/" target="_blank"><img src={bandmixLogo} alt="Bandmix profile" width={100} /></a>
+          <a href="https://www.instagram.com/doomface21/" target="_blank" className="text-gray-200">Instagram</a>
           </div>
         </div>
     </section>
@@ -194,10 +195,6 @@ const renderHeroSection = () => {
 
 
 const renderPlayingExamples = () => {
-  const [jephModal0, setJephModal0] = useState(false);
-  const [jephModal1, setJephModal1] = useState(false);
-  const [jephModal2, setJephModal2] = useState(false);
-
   return (
     <section className="bg-white dark:bg-gray-900 w-full">
      <div className="py-4 px-4 mx-auto max-w-screen-xl lg:py-6 lg:px-6">
@@ -268,12 +265,23 @@ const renderPriorWork = () => {
            <img className="hidden col-span-1 sm:block rounded-lg object-cover h-full" src={ jeffSteve } alt="content gallery 3" />
           </div>
         </div>
-        <div className="flex-1 p-8">
+          <div className="flex-1 p-8">
+            <div>
+              <div className="grid gap-6 mt-4 lg:mt-6 lg:gap-12 md:grid-cols-2">
+
+               {tiVids.map((vid, index) => (
+                 <YouTubeModal vid={vid} index={index}></YouTubeModal>
+               ))}
+              </div>
+            </div>
+
+            <div className="mt-8">
             <AudioPlayer
               playList={tiPlayList}
               activeUI={activeUI}
               audioInitialState={{ curPlayId: 1, playListExpanded: true }}>
-            </AudioPlayer>
+              </AudioPlayer>
+            </div>
         </div>
 
         </div>

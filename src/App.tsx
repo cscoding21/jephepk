@@ -153,7 +153,7 @@ const jephPlayList = [
 
 export function App() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-white px-4 pt-8 dark:bg-gray-900">
+    <main className="flex min-h-screen flex-col items-center justify-start bg-white px-4 pt-8 dark:bg-gray-900">
 
       {renderTopElements()}
 
@@ -235,8 +235,8 @@ const renderSongExamples = () => {
              <h2 className="mb-2 text-xl tracking-tight font-extrabold text-gray-900 lg:text-2xl dark:text-white">Songwriting Examples</h2>
         </div>
 
-        <div className="flex">
-          <div className="w-1/3 py-8 font-light text-gray-500 md:text-md dark:text-gray-400">
+        <div className="flex flex-col md:flex-row">
+          <div className="w-full md:w-1/3 py-4 md:py-8 font-light text-gray-500 md:text-md dark:text-gray-400">
             <a href="https://www.apple.com/logic-pro/"><img src={logicProBack} alt="Logic Pro" className="mb-4" /></a>
             <p>All songs were written, performed, and recorded entirely by me using
             Logic Pro.  Drums were programmed using the step sequencer while all bass
@@ -246,7 +246,7 @@ const renderSongExamples = () => {
             </p>
 
           </div>
-        <div className="flex-1 p-8">
+        <div className="flex-1 p-4 md:p-8">
           <AudioPlayer
             playList={jephPlayList}
             activeUI={activeUI}
@@ -271,8 +271,8 @@ const renderPriorWork = () => {
              <h2 className="mb-2 text-xl tracking-tight font-extrabold text-gray-900 lg:text-2xl dark:text-white">Prior Work: Temporary Insanity</h2>
         </div>
 
-        <div className="flex">
-        <div className="w-1/3">
+        <div className="flex flex-col md:flex-row">
+        <div className="w-full md:w-1/3">
           <div className="gap-4 mt-4 sm:grid sm:grid-cols-2 sm:mt-8">
             <img className="col-span-2 rounded-lg object-cover" src={ finalWalkCover } alt="Final Walk album cover" />
             <img className="hidden col-span-1 sm:block rounded-lg object-cover h-full" src={ tiGroup } alt="Press kit photo" />
@@ -287,7 +287,7 @@ const renderPriorWork = () => {
 
           </div>
         </div>
-          <div className="flex-1 p-8">
+          <div className="flex-1 p-4 md:p-8">
             <div>
               <h3 className="mb-2 text-2xl tracking-tight font-extrabold text-gray-500 dark:text-gray-400">Videos</h3>
               <div className="grid gap-6 mt-4 lg:mt-6 lg:gap-12 md:grid-cols-2">
@@ -309,7 +309,7 @@ const renderPriorWork = () => {
             <div className="mt-14">
               <h3 className="mb-2 text-2xl tracking-tight font-extrabold text-gray-500 dark:text-gray-400">Links &amp; Press</h3>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {tiLinks.map((link, index) => (
                       <div className="flex items-center">
                     <svg className="w-5 h-5 text-gray-800 dark:text-white mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -344,11 +344,10 @@ const YouTubeModal = ({ vid, index }) => {
   const [jephModal, setJephModal] = useState(false);
 
   return (
-    <div className="flex mb-2 md:flex-col md:mb-0" key={"div_jeph_" + index}>
+    <div className="flex flex-col mb-2" key={"div_jeph_" + index}>
       <h3 className="text-xl font-semibold mb-2.5 text-gray-900 dark:text-white">{ vid.name }</h3>
         <img
-          className="cursor-pointer rounded-lg h-full w-full"
-          width={200}
+          className="cursor-pointer rounded-lg w-full"
           src={vid.thumb}
           alt={vid.name}
           id={"img_jeph_" + index}
@@ -356,8 +355,8 @@ const YouTubeModal = ({ vid, index }) => {
       <Modal show={jephModal} onClose={() => setJephModal(false)} dismissible size="7xl">
         <ModalHeader>{ vid.name }</ModalHeader>
          <ModalBody>
-           <iframe width="1024" height="576"
-             className="w-full"
+           <iframe
+             className="w-full aspect-video"
              src={ vid.url }
              title={ vid.name }
              frameBorder={0}

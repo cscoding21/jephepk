@@ -27,5 +27,5 @@ COPY --from=prerelease /usr/src/app/package.json ./
 
 # Run as non-root user
 USER bun
-EXPOSE 3000/tcp
+EXPOSE 3001/tcp
 ENTRYPOINT ["bun", "run", "dist/index.js"]

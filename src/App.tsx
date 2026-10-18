@@ -1,5 +1,4 @@
-import { DarkThemeToggle } from "flowbite-react";
-import { Modal, ModalBody } from "flowbite-react";
+import { Modal, ModalBody, ModalHeader, DarkThemeToggle } from "flowbite-react";
 import { useState } from "react";
 import AudioPlayer, {
   ActiveUI
@@ -190,11 +189,15 @@ const renderHeroSection = () => {
             <h2 className="text-4xl tracking-tight font-extrabold text-gray-800 dark:text-white mb-1">Jeff Kody</h2>
             <h3 className="mb-3 text-xl tracking-tight font-extrabold text-gray-500 dark:text-gray-400">Heavy Metal, Thrash, Punk Guitar Player</h3>
           <p className="mb-6 font-light text-gray-500 md:text-md dark:text-gray-400">
-            Flowbite helps you connect with friends and communities of people who share your interests. Connecting with your friends and family as well as discovering new ones is easy with features like Groups.
+            Jeff Kody is a Heavy Metal guitar player and songwriter specializing in the sub-genres of Thrash, Hardcore, and Punk.  He currently resides in Las Vegas, having roots in the Boston metal scene of the early 90’s.
+            <br /><br />
+            Jeff is mostly known for his time in Temporary Insanity, originally taking over guitar duties for Mike Lucantonio while he stepped out to tour Europe with Gang Green, and eventually joining the band permanently as their second guitarist.
+            <br /><br />
+            Jeff is currently writing new material in the vein of Poison Idea, Quicksand, et al.  He approaches songs as stories and looks to craft music that serves as the soundtrack.
           </p>
-          <a href="https://www.bandmix.com/jeph21/" target="_blank"><img src={bandmixLogo} alt="Bandmix profile" width={100} /></a>
-          <a href="https://www.instagram.com/doomface21/" target="_blank" className="text-gray-200">Instagram</a>
-          <a href="mailto:epk@jeph.me" target="_blank" className="text-gray-200">epk@jeph.me</a>
+          <div className="text-gray-500 dark:text-gray-400">
+            Contact: <a href="mailto:epk@jeph.me" target="_blank" className="ml-1 dark:text-blue-200 text-blue-700">epk@jeph.me</a>
+          </div>
           </div>
         </div>
     </section>
@@ -238,7 +241,7 @@ const renderSongExamples = () => {
             <p>All songs were written, performed, and recorded entirely by me using
             Logic Pro.  Drums were programmed using the step sequencer while all bass
               and guitar are me.</p>
-            <p className="text-amber-400 font-bold mt-3">No AI was used in the creation of this material.
+            <p className="dark:text-amber-400 text-amber-500 font-bold mt-3">No AI was used in the creation of this material.
               I fully reject AI / SUNO as a songwriting tool.
             </p>
 
@@ -313,7 +316,7 @@ const renderPriorWork = () => {
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
                     </svg>
 
-                    <a href={link.url} className="inline-flex font-medium items-center text-blue-200 hover:underline" target="_blank">{ link.name }</a>
+                    <a href={link.url} className="inline-flex font-medium items-center dark:text-blue-200 text-blue-700 hover:underline" target="_blank">{ link.name }</a>
                   </div>
                 ))}
                 {tiPress.map((link, index) => (
@@ -322,7 +325,7 @@ const renderPriorWork = () => {
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
                     </svg>
 
-                    <a href={link.url} className="inline-flex font-medium items-center text-blue-200 hover:underline" target="_blank">{ link.name }</a>
+                    <a href={link.url} className="inline-flex font-medium items-center dark:text-blue-200 text-blue-700 hover:underline" target="_blank">{ link.name }</a>
                   </div>
                 ))}
               </div>
@@ -350,7 +353,8 @@ const YouTubeModal = ({ vid, index }) => {
           alt={vid.name}
           id={"img_jeph_" + index}
           onClick={() => setJephModal(true)}/>
-       <Modal show={jephModal} onClose={() => setJephModal(false)} dismissible size="7xl">
+      <Modal show={jephModal} onClose={() => setJephModal(false)} dismissible size="7xl">
+        <ModalHeader>{ vid.name }</ModalHeader>
          <ModalBody>
            <iframe width="1024" height="576"
              className="w-full"
@@ -361,7 +365,7 @@ const YouTubeModal = ({ vid, index }) => {
              referrerPolicy="strict-origin-when-cross-origin"
              allowFullScreen>
            </iframe>
-         </ModalBody>
+        </ModalBody>
        </Modal>
 
       <div className="mt-4">

@@ -21,14 +21,8 @@ FROM base AS release
 COPY --from=install /temp/prod/node_modules ./node_modules
 COPY --from=prerelease /usr/src/app/package.json ./package.json
 COPY --from=prerelease /usr/src/app/dist/ ./dist/
-COPY --from=prerelease /usr/src/app/src/index.tsx ./dist/index.tsx
-
-# 1. Make the SPA route only match /
-RUN sed -i 's/"\/\*": index,/"\/": index,/' dist/index.tsx
-
-# 2. Add a fetch fallback that serves static files from dist/
-RUN sed -i '/development: process.env.NODE_ENV !== "production",/i \  async fetch(req) {\n    const url = new URL(req.url);\n    const file = Bun.file(`dist${url.pathname}`);\n    if (await file.exists()) {\n      return new Response(file);\n    }\n    return new Response(index);\n  },' dist/index.tsx
+COPY --from=prerelease /usr/src/app/src/ ./src/
 
 USER bun
 EXPOSE 3000/tcp
-ENTRYPOINT [ "bun", "run", "dist/index.tsx" ]
+ENTRYPOINT [ "bun", "run", "src/index.tsx" ]

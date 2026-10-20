@@ -226,7 +226,7 @@ const renderPlayingExamples = () => {
 
 
 const renderSongExamples = () => {
-  const [activeUI, setActiveUI] = useState<ActiveUI>({ all: false, prevNnext: false, playbackRate: false, repeatType: false });
+  const [activeUI, setActiveUI] = useState<ActiveUI>({ all: true });
 
   return (
     <section className="bg-white dark:bg-gray-900 mt-8 w-full">

@@ -2,7 +2,7 @@
 import { build, type BuildConfig } from "bun";
 import plugin from "bun-plugin-tailwind";
 import { existsSync } from "fs";
-import { rm } from "fs/promises";
+import { rm, copyFile } from "fs/promises";
 import path from "path";
 import flowbiteReact from "flowbite-react/plugin/bun";
 
@@ -159,6 +159,17 @@ const result = await build({
   },
   ...cliConfig, // Merge in any CLI-provided options
 });
+
+// Copy static site files from public to dist root
+const publicFiles = ["robots.txt", "llms.txt", "sitemap.xml"];
+for (const file of publicFiles) {
+  const srcPath = path.join(process.cwd(), "public", file);
+  const destPath = path.join(outdir, file);
+  if (existsSync(srcPath)) {
+    await copyFile(srcPath, destPath);
+    console.log(`📄 Copied ${file} to ${outdir}`);
+  }
+}
 
 // Print the results
 const end = performance.now();
